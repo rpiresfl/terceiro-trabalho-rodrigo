@@ -1,0 +1,25 @@
+<h1>Investimentos</h1>
+
+<form>
+    <div>
+        <label for="value">Valor:</label>
+        <input type="text" id="value" name="value" [(ngModel)]="newMoney.value">
+    </div>
+    <div>
+        <label for="date">Data:</label>
+        <input type="date" id="date" name="date" [(ngModel)]="newMoney.date">
+    </div>
+    <input type="button" value="Adicionar" (click)="save()">
+</form>
+
+<google-chart #chart
+    [title]="title"
+    [type]="type"
+    [data]="data"
+    [columnNames]="columnNames"
+    [options]="options"
+    [width]="width"
+    [height]="height"
+>
+</google-chart>
+

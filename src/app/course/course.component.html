@@ -1,0 +1,41 @@
+<h1>Cadastro de Cursos</h1>
+
+<form>
+  <div>
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="newCourse.name">
+  </div>
+  <div>
+    <label for="workload">Carga Horária:</label>
+    <input type="number" id="workload" name="workload" [(ngModel)]="newCourse.workload">
+  </div>
+  <input type="button" value="Salvar" (click)="save()">
+</form>
+
+<h2>Cursos cadastrados</h2>
+<div>
+  <label>Filtro:</label>
+  <input type="text" [(ngModel)]="filterStr">
+  <input type="button" value="Buscar" (click)="filter()">
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Carga Horária</th>
+      <th>Editar</th>
+      <th>Remover</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="courses.length === 0">
+      <td colspan="5">Nenhum curso cadastrado ainda!</td>
+    </tr>
+    <tr *ngFor="let course of courses">
+      <td>{{ course.name }}</td>
+      <td>{{ course.workload }}</td>
+      <td><input type="button" value="Editar" (click)="edit(course)"></td>
+      <td><input type="button" value="Excluir" (click)="delete(course)"></td>
+    </tr>
+  </tbody>
+</table>
